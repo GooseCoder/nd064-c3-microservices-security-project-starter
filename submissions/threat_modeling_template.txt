@@ -1,0 +1,28 @@
+# Docker STRIDE 
+
+1. Tampering - Attacker gains access to the client. This leads to unwanted modifications of the Dockerfile used to build the image, this could propagate malware to other users of the image.
+2. Spoofing - Client traffic from the Docker client to the  daemon or registry could be spoofed by an attacker. 
+3. Information Disclosure - An Attacker may expose sensitive information such as secrets that could impact the security of the cluster and end users.
+4. Elevation of Privilege - A Container image can be modified to run with the --privileged flag, this escalation of privileges could enable the access to other admin resources or the kube-api-server itself.
+5. Denial of Service - An Attacker can redirect Excessive traffic to the client and overload the daemon or increment the resource usage that can lead to a system crash or worse increased cloud resource allocation costs.
+
+# k8s  STRIDE 
+
+1. Tampering - The configuration of etcd may be tampered with by an attacker, modifying system-level configurations such as pod specs.
+2. Spoofing - These are man in the middle attacks caused by configuration mismatch when the apiserver cannot verify kubelets ssl certificates.
+3. Information Disclosure - Sensitive information may be exposed via the etcd key-value store which can be used to make unwanted request and access data. 
+4. Elevation of Privilege - privilege can be gained by using the privileged flag while spanning the containers/pods.
+5. Denial of Service - Attackers can redirect Excessive traffic causing the cluster to overload and be unable to process legitimate requests.
+
+Docker-bench Run Results and Analysis
+From the failed findings, select and document 3 findings from the Docker-bench results that 
+you want to harden based on the 5 attack surface areas you identified in Step 1. At 
+least 1 of the 3 hardened findings should be different from the ones mentioned in the 
+exercise (i.e. 5.10, 5.14, and 5.22).
+
+*1.2.3 You should add rules for the Docker daemon.
+*1.2.4 You should add a rule for the /var/lib/docker directory.
+*1.2.5 You should add a rule for the /etc/docker directory.
+*1.2.6 If the file exists, a rule for it should be added.
+*1.2.7 Usage: grep [OPTION]... PATTERN [FILE]...
+

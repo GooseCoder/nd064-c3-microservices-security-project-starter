@@ -1,0 +1,21 @@
+1. Incident commander name:
+   Gustavo Cruz
+
+2. Executive Summary of what happened:
+   On 2022-01-01 14:04:12 an attacker successfully gained privileged access to the cluster 
+   and was able to launch 3 privileged pods each one running cryptocurrency mining software. 
+   Those pods were running unrestricted access to the cluster and were draining cpu, memory 
+   and storage resources that impacted perfomance of other services
+
+3. Summary of what was affected: 
+   The affected parts were mainly the GPU resources, since those were used to mine cryptocurrency.
+
+4. Summmary of the impact: 
+   Unregistered pods were launched, 3 to be exact, that were mining cryptocurrency, performance was impacted.
+
+5. Summary of the remediation steps: .
+   The pods were forcefully removed a research task was created to investigate the attack vector
+
+6. Summary of lessons learned: 
+   The Kubernetes cluster should be hardened to patch access to the kube-server api service, 
+   the cluster should be able to create pods from allowed images only, this should be fixed as well.

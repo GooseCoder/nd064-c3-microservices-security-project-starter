@@ -1,0 +1,9 @@
+1. Test Plan: 
+
+  The updates will be tested first on a non-production environment such as a test, staging or sandbox cluster.
+  The test environment should replicate a production environment for better testing. The cluster-bound incoming traffic is often split by the load balancer. This allows change be rolled out incrementally to parts of the cluster.
+  In our environment, traffic can be redirected to a test environment via a load balancer from the production environment. With this we could have canary testing in place.
+  For rollback, the cluster.yaml should be versioned with Git so the change can be rolled back. However, as a reboot is required a better strategy like blue/green deployments or rolling updates could be implemented.
+
+2. How will I ensure the changes don't negatively affect my cluster? 
+  The change should be tested in a non-production cluster. Once the changes are put to test, we should monitor metrics using our observability and monitoring tools like Prometheus and Grafana on both test and production environments.
